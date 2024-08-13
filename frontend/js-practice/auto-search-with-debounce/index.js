@@ -75,6 +75,60 @@ const onBlur = () => {
   const suggestionArea = document.getElementById('suggestions');
   suggestionArea.innerHTML = '';
 }
+const debounce = (func,delay) => {
+  let timer;
+  return function() { 
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      func();
+    }, delay);
+  }
+}
+
+const debounceWithLeadingAndTrailing = (func,delay, options = { leading : false, trailing : true}) => {
+  let timer;
+  let isLeading = false;
+  return function() { 
+    clearTimeout(timer)
+    const callNow = options.leading && !timer;
+    if(callNow) {
+      isLeading = true;
+      func();
+    } else {
+      isLeading = false
+    }
+    timer = setTimeout(() => {
+      if(options.trailing && !isLeading) { 
+        func();
+      }
+      isLeading = false;
+    }, delay);
+  }
+}
+
+
+const throttle = (func, delay) => {
+  let lastCall = 0;
+  let timer;
+  return function() {
+    const now = Date.now();
+    if(!lastCall || now - lastCall >= delay) {
+      clearTimeout(timer);
+      timer = null;
+      func();
+      lastCall = now;
+    } else {
+      if(!timer) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          func();
+          lastCall = Date.now();
+        }, delay - (now - lastCall));
+      }
+    }
+  }
+} 
+
 const onChange = async () => {
   const inputVal = inputBox.value;
   fetchSuggestions(inputVal);
@@ -87,10 +141,10 @@ const noValue = () => {
   }
 }
 
-inputBox.addEventListener('focus', onChange);
+inputBox.addEventListener('focus', debounce(onChange, 2000));
 inputBox.addEventListener('input', noValue);
 inputBox.addEventListener('blur', onBlur);
-inputBox.addEventListener('keyup', onChange);
+inputBox.addEventListener('keyup', debounce(onChange, 2000));
 
 
 //Refer https://youtu.be/_XOToOfrwtc?si=MKky5XFlYy18cdTk for more details
