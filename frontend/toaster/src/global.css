@@ -1,0 +1,11 @@
+.toast-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    min-width: 150px;
+    max-width: 300px;
+    justify-content: space-between;
+}
