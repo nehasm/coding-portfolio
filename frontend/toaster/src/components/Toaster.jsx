@@ -14,11 +14,11 @@ const Toaster = ({ children }) => {
         <button onClick={showToaster}>Show toast</button>
         {
             showToast && (
-                <div className='toast-container'>
+                <div className={`toast-container animate-border`}>
                     <div>
                         {children}
                     </div>
-                    <RxCross2 onClick={() => setShowToast(false)} />
+                    <RxCross2 onClick={() => setShowToast(false)} className='cursor-pointer'/>
                 </div>
             )
         }
