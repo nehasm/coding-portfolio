@@ -1,5 +1,10 @@
 .toast-container {
-    position: absolute !important;
+    top: 20px;
+    right: 20px;
+    position: absolute;
+}
+.toaster {
+    position: relative;
     top: 20px;
     right: 20px;
     padding: 16px;
@@ -7,9 +12,10 @@
     display: flex;
     width: 250px;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-.toast-container::before {
+.toaster::before {
     content: '';
     position: absolute;
     bottom: 0;
