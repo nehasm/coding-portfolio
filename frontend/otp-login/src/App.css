@@ -1,0 +1,48 @@
+.number-input {
+  margin: 20px;
+  display: block;
+  width: 300px;
+  padding: 12px;
+  color: black;
+}
+.otp-input-container {
+  display: flex;
+}
+.otp-input {
+  margin: 12px;
+  display: block;
+  width: 22px;
+  height: 32px;
+  padding: 8px;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+}
+
+.btn {
+  margin: 20px;
+  padding: 12px;
+  color: white;
+  border: none;
+  min-width: 200px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.btn-disable {
+  background-color: gray;
+}
+.btn-enable {
+  background-color: #007bff;
+}
+
+input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+/* Hide spin buttons in Firefox */
+input[type="number"] {
+            -moz-appearance: textfield;
+        }
