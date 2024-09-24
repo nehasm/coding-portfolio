@@ -18,14 +18,23 @@ const OtpForm = ( {onOtpSubmit} ) => {
         const otpCopy = [...otp]
         otpCopy[index] = e.target.value
         setOtp(otpCopy)
-        otpRefs.current[index+1].focus()
+        if(e.target.value !== '') {
+            otpRefs.current[index + 1].focus()
+        }
     }
     const handleClick = (index) => { 
-
+        otpRefs.current[index].setSelectionRange(1, 1)
     }
-    const handleKeyDown = (e,index) => { 
+    const handleKeyDown = (e, index) => {
+        e.stopPropagation();
 
-    }
+        // Handle Backspace
+        if (e.key === 'Backspace') {
+            if (otp[index] === '' && index > 0) {
+                otpRefs.current[index - 1].focus();
+            }
+        }
+    };
     return (
         <div>
             <div className='otp-input-container'>
@@ -39,8 +48,8 @@ const OtpForm = ( {onOtpSubmit} ) => {
                             maxLength="1"
                             value={data}
                             onChange={() => handleChange(event, index)}
-                            onClick={handleClick}
-                            onKeyDown={handleKeyDown}
+                            onClick={() => handleClick(index)}
+                            onKeyDown={(e) => handleKeyDown(e, index)}
                             
                         />
                     )
