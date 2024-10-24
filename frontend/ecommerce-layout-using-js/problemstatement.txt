@@ -1,0 +1,56 @@
+
+Machine Coding Question
+Problem Statement:
+You are tasked with creating a dynamic webpage layout similar to an e-commerce homepage (like Flipkart). Your goal is to build this layout using Vanilla JavaScript.
+Requirements:
+1. Dynamic Layout:
+    * You will receive a nested JSON object from an API that represents various containers and widgets.
+    * Each container can contain multiple widgets, and each widget has properties like id, width, and color.
+2. Rendering:
+    * Create a function that takes the nested object and dynamically renders the entire layout on a webpage.
+    * Each widget should be styled according to its width and color properties.
+3. Responsive Design:
+    * The layout should be responsive. Ensure that widgets stack vertically on smaller screens and align horizontally on larger screens.
+4. Search Functionality:
+    * Implement a search bar that filters the displayed widgets based on their id. When a user types an id, only the matching widget(s) should be displayed.
+5. Code Structure:
+    * Write modular and reusable code. Use functions to handle specific tasks such as rendering containers and widgets.
+    * Ensure your code is well-organized and easy to understand.
+Example Input:
+json
+Copy code
+{
+  "containers": [
+    {
+      "id": "header",
+      "widgets": [
+        { "id": "search", "width": "100%", "color": "lightgrey" }
+      ]
+    },
+    {
+      "id": "banner",
+      "widgets": [
+        { "id": "promo", "width": "100%", "color": "blue" }
+      ]
+    },
+    {
+      "id": "products",
+      "widgets": [
+        { "id": "prod1", "width": "30%", "color": "green" },
+        { "id": "prod2", "width": "30%", "color": "red" },
+        { "id": "prod3", "width": "30%", "color": "yellow" }
+      ]
+    }
+  ]
+}
+Example Output:
+* The webpage should display a header with a search bar, a banner with a promotional widget, and a product catalog with three product widgets, all styled according to their specified widths and colors.
+* The search bar should filter the widgets as the user types.
+Constraints:
+* You have 2 hours to complete this task.
+* Focus on writing clean, modular, and responsive code.
+Evaluation Criteria:
+* Correctness: Does the layout render correctly based on the provided input?
+* Modularity: Is the code structured in a modular way, making it easy to read and maintain?
+* Responsiveness: Does the layout adapt well to different screen sizes?
+* Search Functionality: Does the search bar work as expected, filtering widgets by id?

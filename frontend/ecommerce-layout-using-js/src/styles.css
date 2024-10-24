@@ -1,0 +1,32 @@
+#root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#products {
+    display: flex;
+}
+
+
+.product {
+    margin: 12px;
+    padding: 16px;
+    width: var(--widget-width);
+}
+
+
+.product div {
+    margin: 16px;
+}
+
+@media (max-width: 600px) {
+    #products {
+        flex-direction: column;
+    }
+
+    .product {
+        width: 100%;
+    }
+}
